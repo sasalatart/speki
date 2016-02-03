@@ -1,8 +1,15 @@
 <template name="login">
   {{#if currentUser}}
-    {{currentUser.profile.name}}
-    <button id="logout">Cerrar Sesión</button>
+    <span class="aligner">
+      <button class="ui facebook button" id="logout">
+        <span>Cerrar Sesión</span>
+      </button>
+      <img src={{currentUser.profile.picture}} alt="profilePicture" />
+    </span>
   {{else}}
-    <button id="facebook-login">Ingresar con Facebook</button>
+    <button class="ui facebook button" id="facebook-login">
+      <i class="facebook icon"></i>
+      <span>Iniciar Sesión</span>
+    </button>
   {{/if}}
 </template>
