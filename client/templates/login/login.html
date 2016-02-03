@@ -1,0 +1,8 @@
+<template name="login">
+  {{#if currentUser}}
+    {{currentUser.profile.name}}
+    <button id="logout">Cerrar Sesión</button>
+  {{else}}
+    <button id="facebook-login">Ingresar con Facebook</button>
+  {{/if}}
+</template>
