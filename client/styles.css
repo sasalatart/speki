@@ -1,7 +1,17 @@
+body {
+  height: 100%;
+}
+
 .aligner {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.aligner-space-between {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .flex-column {
@@ -11,10 +21,10 @@
 
 .main-layout {
   align-items: stretch;
-  background: #d8ddef;
-  background: -webkit-linear-gradient(#d8ddef, #f7ebe8);
-  background: -o-linear-gradient(#d8ddef, #f7ebe8);
-  background: linear-gradient(#d8ddef, #f7ebe8);
+  background: #5C258D;
+  background: -webkit-linear-gradient(right, #5C258D, #4389A2);
+  background: -o-linear-gradient(right, #5C258D, #4389A2);
+  background: linear-gradient(to left, #5C258D, #4389A2);
   height: 100%;
 }
 
@@ -55,4 +65,38 @@
 .footer {
   min-height: 3em;
   flex: 1;
+}
+
+.search-bar {
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  display: inline-block;
+  font-size: 3em;
+  margin: 1em 0 0.5em 0;
+  padding: 0.25em;
+}
+
+.search-input {
+  background: none;
+  border: none;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.course-result {
+  color: #ffffff;
+  width: 40em;
+}
+
+.course-name {
+  font-weight: bolder;
+}
+
+.course-school {
+  font-weight: lighter;
 }
