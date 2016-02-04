@@ -1,3 +1,7 @@
+Template.landingPage.onDestroyed(() => {
+  delete Session.keys['searchText'];
+});
+
 Template.search.events({
   'keyup .search-input': event => {
     Session.set('searchText', event.target.value);
@@ -8,7 +12,7 @@ Template.search.helpers({
   courses: () => {
     var searchText = Session.get('searchText');
     if (searchText) {
-      var parts = searchText.trim().split(/[ \-\:]+/);
+      var parts = searchText.trim().split(/[\-\:]+/);
       var regExp = new RegExp("\^(" + parts.join('|') + ")", "ig");
       var selector = {
         $or: [{ initials: regExp }, { name: regExp }]
