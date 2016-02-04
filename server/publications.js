@@ -6,5 +6,9 @@ Meteor.publish('users', () => {
       'profile.picture': 1,
     }
   };
-  Meteor.users.find({}, options);
+  return Meteor.users.find({}, options);
+});
+
+Meteor.publish('courses', () => {
+  return Courses.find({});
 });
