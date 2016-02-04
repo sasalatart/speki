@@ -6,10 +6,12 @@
     </div>
 
     {{#each courses}}
-      <div class="course-result aligner-space-between">
-        <span class="course-name">[{{initials}}] {{name}}</span>
-        <span class="course-school">{{school}}</span>
-      </div>
+      <a href="{{pathFor route='coursePage'}}">
+        <div class="course-result aligner-space-between">
+          <span class="course-name">[{{initials}}] {{name}}</span>
+          <span class="course-school">{{school}}</span>
+        </div>
+      </a>
     {{/each}}
   </div>
 </template>
