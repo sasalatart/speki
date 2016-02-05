@@ -13,7 +13,7 @@
       <div class="content">
         <span class="author">{{ author.profile.name }}</span>
         <div class="metadata">
-          <span class="date">{{ createdAt }}</span>
+          {{ dateWritten }}
         </div>
         {{ #unless isEditing }}
           <div class="text">
