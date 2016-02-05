@@ -1,6 +1,7 @@
 Template.course.onCreated(() => {
   Meteor.subscribe('course', currentCourse);
   Meteor.subscribe('testimonies', currentCourse);
+  Meteor.subscribe('questions', currentCourse);
   Session.set('reading', 'testimonies');
 });
 
@@ -16,6 +17,12 @@ Template.course.events({
     var text = event.target.text.value;
     Meteor.call("addTestimony", currentCourse, text);
     event.target.text.value = "";
+  },
+  'submit .new-question': function(event) {
+    event.preventDefault();
+    var text = event.target.text.value;
+    Meteor.call("addQuestion", currentCourse, text);
+    event.target.text.value = "";
   }
 });
 
@@ -28,5 +35,8 @@ Template.course.helpers({
   },
   'testimonies': function() {
     return Testimonies.find({ courseID: currentCourse });
+  },
+  'questions': function() {
+    return Questions.find({ courseID: currentCourse });
   }
 });

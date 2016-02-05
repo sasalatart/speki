@@ -38,5 +38,23 @@
 
   {{#if questionsActive}}
     <h3 class="ui dividing header">Preguntas</h3>
+
+    {{#if currentUser}}
+      <form class="ui form new-question">
+        <div class="field">
+          <label for="question-input">Tu Pregunta</label>
+          <textarea name="text" rows="2"></textarea>
+        </div>
+        <button class="ui fluid button" type="submit">¡Listo!</button>
+      </form>
+    {{/if}}
+
+    <div class="aligner">
+      <div class="ui comments">
+        {{#each questions}}
+          {{> question}}
+        {{/each}}
+      </div>
+    </div>
   {{/if}}
 </template>

@@ -29,3 +29,7 @@ Meteor.publish('course', _id => {
 Meteor.publish('testimonies', courseID => {
   return Testimonies.find({ courseID: courseID });
 });
+
+Meteor.publish('questions', courseID => {
+  return Questions.find({ courseID: courseID });
+});
