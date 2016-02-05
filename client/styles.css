@@ -134,6 +134,7 @@ label {
   width: 100%;
 }
 
-.new-testimony {
+.new-testimony,
+.new-question {
   margin-bottom: 2em;
 }
