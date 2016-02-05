@@ -1,4 +1,4 @@
-Template.login.events({
+Template.navbar.events({
   'click #facebook-login': function(event) {
     Meteor.loginWithFacebook({}, err => {
       if (err) { throw new Meteor.Error("Facebook login failed"); }
