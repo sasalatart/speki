@@ -7,6 +7,9 @@ Template.testimony.helpers({
   },
   isEditing: function() {
     return Session.equals('editingTestimony', this._id);
+  },
+  dateWritten: function() {
+    return this.createdAt.toDateString();
   }
 });
 
