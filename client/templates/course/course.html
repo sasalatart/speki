@@ -4,4 +4,39 @@
     <h3>{{initials}} | {{school}}</h3>
     <div class="information">{{information}}</div>
   </div>
+
+  <div class="aligner read-select">
+    <button id="testimonies" class="ui red huge button {{#if questionsActive}}inverted{{/if}}">
+      Testimonios
+    </button>
+    <button id="questions" class="ui teal huge button {{#if testimoniesActive}}inverted{{/if}}">
+      Preguntas
+    </button>
+  </div>
+
+  {{#if testimoniesActive}}
+    <h3 class="ui dividing header">Testimonios</h3>
+
+    {{#if currentUser}}
+      <form class="ui form new-testimony">
+        <div class="field">
+          <label for="testimony-input">Tu Testimonio</label>
+          <textarea name="text" rows="2"></textarea>
+        </div>
+        <button class="ui fluid button" type="submit">¡Listo!</button>
+      </form>
+    {{/if}}
+
+    <div class="aligner">
+      <div class="ui comments">
+        {{#each testimonies}}
+          {{> testimony}}
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if questionsActive}}
+    <h3 class="ui dividing header">Preguntas</h3>
+  {{/if}}
 </template>
