@@ -13,4 +13,4 @@ Router.route('/courses/:_id', {
     currentCourse = this.params._id;
     return Courses.findOne({ _id: currentCourse });
   }
-})
+});

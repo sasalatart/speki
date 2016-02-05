@@ -3,13 +3,13 @@ Template.landingPage.onDestroyed(() => {
 });
 
 Template.search.events({
-  'keyup .search-input': event => {
+  'keyup .search-input': function(event) {
     Session.set('searchText', event.target.value);
   }
 });
 
 Template.search.helpers({
-  courses: () => {
+  courses: function() {
     var searchText = Session.get('searchText');
     if (searchText) {
       var parts = searchText.trim().split(/[\-\:]+/);

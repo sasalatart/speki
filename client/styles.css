@@ -4,6 +4,7 @@
 
 body {
   height: 100%;
+  overflow-y: auto;
 }
 
 .aligner {
@@ -30,6 +31,7 @@ body {
   background: -o-linear-gradient(right, #5C258D, #4389A2);
   background: linear-gradient(to left, #5C258D, #4389A2);
   height: 100%;
+  overflow-y: auto;
 }
 
 .gradient-bar {
@@ -41,15 +43,18 @@ body {
 
 .navbar {
   box-shadow: 0 0.25em 1.25em rgba(0, 0, 0, 0.6);
+  margin-bottom: 2em;
+  max-height: 4em;
   min-height: 4em;
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 .navbar > .ui.container {
   align-items: center;
   display: flex;
-  min-height: 4em;
   justify-content: space-between;
+  max-height: inherit;
+  min-height: inherit;;
 }
 
 .navbar .brand {
@@ -60,15 +65,18 @@ body {
 
 .navbar img {
   max-height: 4em;
+  min-height: 4em;
 }
 
 .wrapper {
-  flex: 18;
+  flex: 48 48 auto;
 }
 
 .footer {
+  flex: 1 1 auto;
+  margin-top: 2em;
+  max-height: 3em;
   min-height: 3em;
-  flex: 1;
 }
 
 .search-bar {
@@ -103,8 +111,29 @@ body {
   font-weight: lighter;
 }
 
-.course h1,
-.course h3,
+h1,
+h3,
 .course .information {
+  color: #ffffff !important;
   text-align: center;
+}
+
+.read-select {
+  margin: 2em 0;
+}
+
+label {
+  color: #ffffff !important;
+}
+
+.float-right {
+  float: right;
+}
+
+.aligner > .ui.comments {
+  width: 100%;
+}
+
+.new-testimony {
+  margin-bottom: 2em;
 }

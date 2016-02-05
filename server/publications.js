@@ -23,15 +23,9 @@ Meteor.publish('courses', () => {
 });
 
 Meteor.publish('course', _id => {
-  var options = {
-    fields: {
-      _id: 1,
-      'initials': 1,
-      'name': 1,
-      'school': 1,
-      'information': 1
-    }
-  }
+  return Courses.find({ _id: _id });
+});
 
-  return Courses.find({ _id: _id }, options);
-})
+Meteor.publish('testimonies', courseID => {
+  return Testimonies.find({ courseID: courseID });
+});
