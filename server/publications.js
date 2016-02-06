@@ -4,6 +4,7 @@ Meteor.publish('users', () => {
       _id: 1,
       'profile.name': 1,
       'profile.picture': 1,
+      admin: 1
     }
   };
   return Meteor.users.find({}, options);
