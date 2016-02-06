@@ -1,34 +1,61 @@
 <template name="question">
   <div class="ui segment">
     <div class="comment">
-      {{ #if isOwner }}
+      {{#if isOwner}}
         <span class="float-right">
-          {{ #unless isEditing }}<i class="ui orange edit icon link edit-question"></i>{{ /unless }}
+          {{#unless isEditing}}
+            <i class="ui orange edit icon link edit-question"></i>
+          {{/unless}}
           <i class="ui red remove icon link remove-question"></i>
         </span>
-      {{ /if }}
+      {{/if}}
       <a class="avatar">
-        <img src="{{ author.profile.picture }}">
+        <img src="{{author.profile.picture}}">
       </a>
       <div class="content">
-        <span class="author">{{ author.profile.name }}</span>
+        <span class="author">
+          {{author.profile.name}}
+        </span>
         <div class="metadata">
-          {{ dateWritten }}
+          {{dateWritten}}
         </div>
-        {{ #unless isEditing }}
+        {{#unless isEditing}}
           <div class="text">
-            {{ text }}
+            {{text}}
           </div>
-        {{ else }}
+        {{else}}
           <form class="ui form edit-question-form">
             <div class="field">
-              <textarea name="text" value="{{ text }}" rows="2"></textarea>
+              <textarea name="text" rows="2" value="{{ text }}"></textarea>
             </div>
             <button class="ui button" type="submit">¡Listo!</button>
             <button class="ui button edit-question-cancel">Cancelar</button>
           </form>
-        {{ /unless }}
+        {{/unless}}
       </div>
+      {{#unless isAnswering}}
+        <div class="actions">
+          <a class="reply answer-question">Responder</a>
+        </div>
+      {{else}}
+        <form class="ui reply form new-answer">
+          <div class="field">
+            <textarea name="text" rows="2"></textarea>
+          </div>
+          <button class="ui primary submit labeled icon button" type="submit">
+            <i class="write icon"></i>
+            <span>Responder</span>
+          </button>
+          <button class="ui button answer-question-cancel">Cancelar</button>
+        </form>
+      {{/unless}}
+      {{#if hasAnswers}}
+        <div class="comments">
+          {{#each answers}}
+            {{> answer}}
+          {{/each}}
+        </div>
+      {{/if}}
     </div>
   </div>
 </template>

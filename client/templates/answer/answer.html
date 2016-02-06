@@ -1,0 +1,38 @@
+<template name="answer">
+  <div class="comment">
+    {{#if isOwner}}
+      <span class="float-right">
+        {{#unless isEditing}}
+          <i class="ui orange edit icon link edit-answer"></i>
+        {{/unless}}
+        <i class="ui red remove icon link remove-answer"></i>
+      </span>
+    {{/if}}
+    <a class="avatar">
+      <img src="{{author.profile.picture}}">
+    </a>
+    <div class="content">
+      <span class="author">
+        {{author.profile.name}}
+      </span>
+      <div class="metadata">
+        <span class="date">
+          {{dateWritten}}
+        </span>
+      </div>
+      {{#unless isEditing}}
+        <div class="text">
+          {{text}}
+        </div>
+      {{else}}
+        <form class="ui form edit-answer-form">
+          <div class="field">
+            <textarea name="text" value="{{text}}" rows="2"></textarea>
+          </div>
+          <button class="ui button" type="submit">¡Listo!</button>
+          <button class="ui button edit-answer-cancel">Cancelar</button>
+        </form>
+      {{/unless}}
+    </div>
+  </div>
+</template>

@@ -1,18 +1,3 @@
-Template.question.helpers({
-  author: function() {
-    return Meteor.users.findOne({ _id: this.author });
-  },
-  isOwner: function() {
-    return this.author === Meteor.userId();
-  },
-  isEditing: function() {
-    return Session.equals('editingQuestion', this._id);
-  },
-  dateWritten: function() {
-    return this.createdAt.toDateString();
-  }
-});
-
 Template.question.events({
   'click .edit-question': function(event) {
     Session.set('editingQuestion', this._id);
@@ -28,5 +13,41 @@ Template.question.events({
   },
   'click .remove-question': function(event) {
     Meteor.call('removeQuestion', this._id);
+  },
+  'click .answer-question': function(event) {
+    Session.set('answeringQuestion', this._id);
+  },
+  'submit .new-answer': function(event) {
+    event.preventDefault();
+    Meteor.call('addAnswer', this._id, this.courseID, event.target.text.value);
+    Session.set('answeringQuestion', null);
+  },
+  'click .answer-question-cancel': function(event) {
+    event.preventDefault();
+    Session.set('answeringQuestion', null);
+  }
+});
+
+Template.question.helpers({
+  author: function() {
+    return Meteor.users.findOne({ _id: this.author });
+  },
+  isOwner: function() {
+    return this.author === Meteor.userId();
+  },
+  dateWritten: function() {
+    return this.createdAt.toDateString();
+  },
+  isEditing: function() {
+    return Session.equals('editingQuestion', this._id);
+  },
+  isAnswering: function() {
+    return Session.equals('answeringQuestion', this._id);
+  },
+  hasAnswers: function() {
+    return Answers.find({ questionID: this._id }).count() !== 0;
+  },
+  answers: function() {
+    return Answers.find({ questionID: this._id })
   }
 });
