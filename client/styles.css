@@ -103,12 +103,20 @@ body {
   width: 40em;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .course-name {
   font-weight: bolder;
+  max-width: 27.5em;
 }
 
 .course-school {
   font-weight: lighter;
+  max-width: 10em;
 }
 
 h1,
