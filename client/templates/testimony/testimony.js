@@ -1,18 +1,3 @@
-Template.testimony.helpers({
-  author: function() {
-    return Meteor.users.findOne({ _id: this.author });
-  },
-  isOwner: function() {
-    return this.author === Meteor.userId();
-  },
-  isEditing: function() {
-    return Session.equals('editingTestimony', this._id);
-  },
-  dateWritten: function() {
-    return this.createdAt.toDateString();
-  }
-});
-
 Template.testimony.events({
   'click .edit-testimony': function(event) {
     Session.set('editingTestimony', this._id);
@@ -28,5 +13,20 @@ Template.testimony.events({
   },
   'click .remove-testimony': function(event) {
     Meteor.call('removeTestimony', this._id);
+  }
+});
+
+Template.testimony.helpers({
+  author: function() {
+    return Meteor.users.findOne({ _id: this.author });
+  },
+  isOwner: function() {
+    return this.author === Meteor.userId();
+  },
+  dateWritten: function() {
+    return this.createdAt.toDateString();
+  },
+  isEditing: function() {
+    return Session.equals('editingTestimony', this._id);
   }
 });
