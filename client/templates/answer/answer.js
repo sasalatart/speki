@@ -13,6 +13,12 @@ Template.question.events({
   },
   'click .remove-answer': function(event) {
     Meteor.call('removeAnswer', this._id);
+  },
+  'click .agree': function(event) {
+    Meteor.call('agree', this._id);
+  },
+  'click .disagree': function(event) {
+    Meteor.call('disagree', this._id);
   }
 });
 
@@ -28,5 +34,17 @@ Template.answer.helpers({
   },
   isEditing: function() {
     return Session.equals('editingAnswer', this._id);
+  },
+  agrees: function() {
+    return this.agrees.length;
+  },
+  disagrees: function() {
+    return this.disagrees.length;
+  },
+  canAgree: function() {
+    return this.agrees.indexOf(this.author) === -1;
+  },
+  canDisagree: function() {
+    return this.disagrees.indexOf(this.author) === -1;
   }
 });

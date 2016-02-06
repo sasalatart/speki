@@ -33,6 +33,12 @@
           <button class="ui button edit-answer-cancel">Cancelar</button>
         </form>
       {{/unless}}
+      <div class="actions">
+        <i class="ui green {{#if canAgree}}outline{{/if}} thumbs up icon link agree"></i>
+        <span>{{agrees}}</span>
+        <i class="ui red {{#if canDisagree}}outline{{/if}} thumbs down icon link disagree"></i>
+        <span>{{disagrees}}</span>
+      </div>
     </div>
   </div>
 </template>
