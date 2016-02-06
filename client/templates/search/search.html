@@ -1,17 +1,16 @@
 <template name="search">
   <div class="aligner flex-column">
     <div class="search-bar">
-      <input class="prompt search-input" placeholder="Buscar ramo..." type="text">
       <i class="search icon"></i>
-    </div>
+      <input class="prompt search-input" placeholder="Buscar ramo..." type="text">
 
-    {{#each courses}}
-      <a href="{{pathFor route='coursePage'}}">
-        <div class="course-result aligner-space-between">
-          <span class="course-name truncate">[{{initials}}] {{name}}</span>
-          <span class="course-school truncate">{{school}}</span>
-        </div>
-      </a>
-    {{/each}}
+      <div class="ui segment aligner flex-column search-results">
+        {{#each courses}}
+          <a class="truncate" href="{{pathFor route='coursePage'}}">
+            [{{initials}}] {{name}}
+          </a>
+        {{/each}}
+      </div>
+    </div>
   </div>
 </template>
