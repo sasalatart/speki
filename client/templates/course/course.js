@@ -1,8 +1,4 @@
 Template.course.onCreated(() => {
-  Meteor.subscribe('course', currentCourse);
-  Meteor.subscribe('testimonies', currentCourse);
-  Meteor.subscribe('questions', currentCourse);
-  Meteor.subscribe('answers', currentCourse);
   Session.set('reading', 'testimonies');
 });
 
@@ -16,13 +12,13 @@ Template.course.events({
   'submit .new-testimony': function(event) {
     event.preventDefault();
     var text = event.target.text.value;
-    Meteor.call('addTestimony', currentCourse, text);
+    Meteor.call('addTestimony', this._id, text);
     event.target.text.value = "";
   },
   'submit .new-question': function(event) {
     event.preventDefault();
     var text = event.target.text.value;
-    Meteor.call('addQuestion', currentCourse, text);
+    Meteor.call('addQuestion', this._id, text);
     event.target.text.value = "";
   }
 });
@@ -35,9 +31,9 @@ Template.course.helpers({
     return Session.equals('reading', 'questions');
   },
   'testimonies': function() {
-    return Testimonies.find({ courseID: currentCourse });
+    return Testimonies.find({ courseID: this._id });
   },
   'questions': function() {
-    return Questions.find({ courseID: currentCourse });
+    return Questions.find({ courseID: this._id });
   }
 });

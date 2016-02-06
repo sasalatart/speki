@@ -20,3 +20,4 @@ accounts-facebook
 service-configuration
 iron:router
 check
+meteorhacks:subs-manager
