@@ -26,10 +26,10 @@ body {
 
 .main-layout {
   align-items: stretch;
-  background: #5C258D;
-  background: -webkit-linear-gradient(right, #5C258D, #4389A2);
-  background: -o-linear-gradient(right, #5C258D, #4389A2);
-  background: linear-gradient(to left, #5C258D, #4389A2);
+  background: #5c258d;
+  background: -webkit-linear-gradient(right, #5c258d, #4389a2);
+  background: -o-linear-gradient(right, #5c258d, #4389a2);
+  background: linear-gradient(to left, #5c258d, #4389a2);
   height: 100%;
   overflow-y: auto;
 }
@@ -85,7 +85,7 @@ body {
   border-width: 1px;
   box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.6);
   display: inline-block;
-  font-size: 3em;
+  font-size: 2.25em;
   margin: 1em 0 0.5em 0;
   padding: 0.25em;
 }
@@ -99,24 +99,34 @@ body {
   outline: none;
 }
 
-.course-result {
-  width: 40em;
+.search-results {
+  font-size: 0.5em;
+  height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.25s;
+}
+
+.search-bar:hover .search-results {
+  height: 20em;
+  transition: all 0.25s;
+}
+
+.search-results > a {
+  color: #000000;
+  max-width: 25em;
+  min-width: 25em;
+  padding: 0 0.5em;
+}
+
+.search-results > a:hover {
+  color: #4389a2;
 }
 
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.course-name {
-  font-weight: bolder;
-  max-width: 27.5em;
-}
-
-.course-school {
-  font-weight: lighter;
-  max-width: 10em;
 }
 
 h1,
