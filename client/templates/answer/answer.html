@@ -1,9 +1,11 @@
 <template name="answer">
   <div class="comment">
-    {{#if isOwner}}
+    {{#if hasPrivileges}}
       <span class="float-right">
         {{#unless isEditing}}
-          <i class="ui orange edit icon link edit-answer"></i>
+          {{#if isOwner}}
+            <i class="ui orange edit icon link edit-answer"></i>
+          {{/if}}
         {{/unless}}
         <i class="ui red remove icon link remove-answer"></i>
       </span>

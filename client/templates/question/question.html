@@ -1,10 +1,12 @@
 <template name="question">
   <div class="ui segment">
     <div class="comment">
-      {{#if isOwner}}
+      {{#if hasPrivileges}}
         <span class="float-right">
           {{#unless isEditing}}
-            <i class="ui orange edit icon link edit-question"></i>
+            {{#if isOwner}}
+              <i class="ui orange edit icon link edit-question"></i>
+            {{/if}}
           {{/unless}}
           <i class="ui red remove icon link remove-question"></i>
         </span>

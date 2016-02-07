@@ -1,33 +1,39 @@
 <template name="testimony">
   <div class="ui segment">
     <div class="comment">
-      {{ #if isOwner }}
+      {{#if hasPrivileges}}
         <span class="float-right">
-          {{ #unless isEditing }}<i class="ui orange edit icon link edit-testimony"></i>{{ /unless }}
+          {{#unless isEditing}}
+            {{#if isOwner}}
+              <i class="ui orange edit icon link edit-testimony"></i>
+            {{/if}}
+          {{/unless}}
           <i class="ui red remove icon link remove-testimony"></i>
         </span>
-      {{ /if }}
+      {{/if}}
       <a class="avatar">
-        <img src="{{ author.profile.picture }}">
+        <img src="{{author.profile.picture}}">
       </a>
       <div class="content">
-        <span class="author">{{ author.profile.name }}</span>
+        <span class="author">
+          {{author.profile.name}}
+        </span>
         <div class="metadata">
-          {{ dateWritten }}
+          {{dateWritten}}
         </div>
-        {{ #unless isEditing }}
+        {{#unless isEditing}}
           <div class="text">
-            {{ text }}
+            {{text}}
           </div>
-        {{ else }}
+        {{else}}
           <form class="ui form edit-testimony-form">
             <div class="field">
-              <textarea name="text" value="{{ text }}" rows="2"></textarea>
+              <textarea name="text" value="{{text}}" rows="2"></textarea>
             </div>
             <button class="ui button" type="submit">¡Listo!</button>
             <button class="ui button edit-testimony-cancel">Cancelar</button>
           </form>
-        {{ /unless }}
+        {{/unless}}
       </div>
     </div>
   </div>
