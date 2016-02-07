@@ -29,6 +29,9 @@ Template.answer.helpers({
   isOwner: function() {
     return this.author === Meteor.userId();
   },
+  hasPrivileges: function() {
+    return this.author === Meteor.userId() || Meteor.user().admin;
+  },
   dateWritten: function() {
     return this.createdAt.toDateString();
   },
