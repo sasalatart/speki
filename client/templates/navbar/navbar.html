@@ -1,20 +1,27 @@
 <template name="navbar">
   <div class="navbar gradient-bar">
     <div class="ui container">
-      <a class="brand" href="/">Speki</a>
-      {{#if currentUser}}
+      <div class="aligner-space-between">
         <span class="aligner">
-          <button class="ui facebook button" id="logout">
-            <span>Cerrar Sesión</span>
-          </button>
-          <img src={{currentUser.profile.picture}} alt="profilePicture" />
+          <a class="brand" href="/">Speki</a>
+          {{#if currentUser}}
+            <a class="item" href="/users">Usuarios</a>
+          {{/if}}
         </span>
-      {{else}}
-        <button class="ui facebook button" id="facebook-login">
-          <i class="facebook icon"></i>
-          <span>Iniciar Sesión</span>
-        </button>
-      {{/if}}
+        {{#if currentUser}}
+          <span class="aligner">
+            <button class="ui facebook button" id="logout">
+              <span>Cerrar Sesión</span>
+            </button>
+            <img src={{currentUser.profile.picture}} alt="profilePicture" />
+          </span>
+        {{else}}
+          <button class="ui facebook button" id="facebook-login">
+            <i class="facebook icon"></i>
+            <span>Iniciar Sesión</span>
+          </button>
+        {{/if}}
+      </div>
     </div>
   </div>
 </template>

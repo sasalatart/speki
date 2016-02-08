@@ -3,6 +3,16 @@ var subs = new SubsManager({
   expireIn: 10 // any subscription will expire after 10 minutes of inactivity
 });
 
+var OnBeforeActions = {
+  loginRequired: function() {
+    if (Meteor.userId()) {
+      this.next();
+    } else {
+      Router.go('/');
+    }
+  }
+};
+
 Router.configure({
   layoutTemplate: 'appLayout'
 });
@@ -23,4 +33,13 @@ Router.route('/courses/:_id', {
     subs.subscribe('questions', this.params._id);
     subs.subscribe('answers', this.params._id);
   }
+});
+
+Router.route('/users', {
+  name: 'usersPage',
+  template: 'users'
+});
+
+Router.onBeforeAction(OnBeforeActions.loginRequired, {
+  only: ['usersPage']
 });
