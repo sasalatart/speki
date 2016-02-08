@@ -25,6 +25,9 @@ Template.question.events({
   'click .answer-question-cancel': function(event) {
     event.preventDefault();
     Session.set('answeringQuestion', null);
+  },
+  'click .toggle-subscription': function(event) {
+    Meteor.call('toggleSubscription', this._id);
   }
 });
 
@@ -52,5 +55,8 @@ Template.question.helpers({
   },
   answers: function() {
     return Answers.find({ questionID: this._id })
+  },
+  subscribed: function() {
+    return this.subscribers.indexOf(Meteor.userId()) !== -1;
   }
 });

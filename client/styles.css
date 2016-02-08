@@ -179,3 +179,7 @@ label {
 .ui.search.dropdown.selection * {
   color: #000000 !important;
 }
+
+ul.notifications {
+  position: fixed;
+}
