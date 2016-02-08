@@ -5,9 +5,6 @@ Template.user.events({
 });
 
 Template.user.helpers({
-  admin: function() {
-    return Meteor.user().admin
-  },
   notAdmin: function() {
     return !this.admin;
   }

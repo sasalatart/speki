@@ -1,9 +1,7 @@
 <template name="user">
   <div class="user">
     <span class="aligner">
-      {{#if admin}}
-        <i class="yellow star {{#if notAdmin}}empty{{/if}} icon link admin-toggler"></i>
-      {{/if}}
+      <i class="yellow star {{#if notAdmin}}empty{{/if}} icon link admin-toggler"></i>
       <img src="{{profile.picture}}" alt="user" />
       <span>
         {{profile.name}}

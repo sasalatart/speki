@@ -35,14 +35,14 @@ Template.question.helpers({
   author: function() {
     return Meteor.users.findOne({ _id: this.author });
   },
+  dateWritten: function() {
+    return this.createdAt.toDateString();
+  },
   isOwner: function() {
     return this.author === Meteor.userId();
   },
   hasPrivileges: function() {
-    return this.author === Meteor.userId() || Meteor.user().admin;
-  },
-  dateWritten: function() {
-    return this.createdAt.toDateString();
+    return this.author === Meteor.userId() || (Meteor.user() ? Meteor.user().admin : false);
   },
   isEditing: function() {
     return Session.equals('editingQuestion', this._id);
@@ -54,7 +54,7 @@ Template.question.helpers({
     return Answers.find({ questionID: this._id }).count() !== 0;
   },
   answers: function() {
-    return Answers.find({ questionID: this._id })
+    return Answers.find({ questionID: this._id });
   },
   subscribed: function() {
     return this.subscribers.indexOf(Meteor.userId()) !== -1;

@@ -4,13 +4,6 @@ var subs = new SubsManager({
 });
 
 var OnBeforeActions = {
-  loginRequired: function() {
-    if (Meteor.userId()) {
-      this.next();
-    } else {
-      Router.go('/');
-    }
-  },
   adminRequired: function() {
     if (Meteor.userId() && Meteor.user().admin) {
       this.next();
@@ -52,10 +45,6 @@ Router.route('/users', {
   template: 'users'
 });
 
-Router.onBeforeAction(OnBeforeActions.loginRequired, {
-  only: ['usersPage']
-});
-
 Router.onBeforeAction(OnBeforeActions.adminRequired, {
-  only: ['newCoursePage']
+  only: ['newCoursePage', 'usersPage']
 });
