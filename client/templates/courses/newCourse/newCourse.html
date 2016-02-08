@@ -1,0 +1,28 @@
+<template name="newCourse">
+  <h1>Nuevo Ramo</h1>
+  <form class="ui equal width form new-course">
+    <div class="fields">
+      <div class="field">
+        <label for="initials">Sigla</label>
+        <input name="initials" placeholder="Ej: MAT1610" type="text">
+      </div>
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input name="name" placeholder="Ej: Cálculo I" type="text">
+      </div>
+      <div class="field">
+        <label for="school">Unidad</label>
+        <select class="ui search dropdown" name="school">
+          {{#each schools}}
+            <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="information">Descripción</label>
+      <textarea name="information" placeholder="Ej: El ramo consiste en..." rows="3"></textarea>
+    </div>
+    <button class="ui fluid button" type="submit">¡Listo!</button>
+  </form>
+</template>

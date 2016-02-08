@@ -10,6 +10,13 @@ var OnBeforeActions = {
     } else {
       Router.go('/');
     }
+  },
+  adminRequired: function() {
+    if (Meteor.userId() && Meteor.user().admin) {
+      this.next();
+    } else {
+      Router.go('/');
+    }
   }
 };
 
@@ -19,6 +26,11 @@ Router.configure({
 
 Router.route('/', {
   template: 'landingPage'
+});
+
+Router.route('/courses/new', {
+  name: 'newCoursePage',
+  template: 'newCourse'
 });
 
 Router.route('/courses/:_id', {
@@ -42,4 +54,8 @@ Router.route('/users', {
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
   only: ['usersPage']
+});
+
+Router.onBeforeAction(OnBeforeActions.adminRequired, {
+  only: ['newCoursePage']
 });

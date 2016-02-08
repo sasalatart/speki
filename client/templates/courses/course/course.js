@@ -3,6 +3,15 @@ Template.course.onCreated(() => {
 });
 
 Template.course.events({
+  'click .remove-course': function(event) {
+    Meteor.call('removeCourse', this._id, function(error, result) {
+      if (error) { alert(error.reason); }
+      Router.go('/');
+    });
+  },
+  'click .edit-course': function(event) {
+    $('.ui.modal').modal('show');
+  },
   'click #testimonies': function(event) {
     Session.set('reading', 'testimonies');
   },
@@ -24,6 +33,13 @@ Template.course.events({
 });
 
 Template.course.helpers({
+  'getInformation': function() {
+    if (this.information === '0') {
+      return 'Descripción no disponible para este ramo.'
+    } else {
+      return this.information;
+    }
+  },
   'testimoniesActive': function() {
     return Session.equals('reading', 'testimonies');
   },
