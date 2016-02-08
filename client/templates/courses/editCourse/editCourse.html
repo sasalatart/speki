@@ -1,0 +1,27 @@
+<template name="editCourse">
+  <form class="ui equal width form edit-course-form">
+    <div class="fields">
+      <div class="field">
+        <label for="initials">Sigla</label>
+        <input name="initials" value="{{initials}}" type="text">
+      </div>
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input name="name" value="{{name}}" type="text">
+      </div>
+      <div class="field">
+        <label for="school">Unidad</label>
+        <select class="ui search dropdown" name="school">
+          {{#each schools}}
+            <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="information">Descripción</label>
+      <textarea name="information" value="{{information}}" rows="3"></textarea>
+    </div>
+    <button class="ui orange fluid button" type="submit">¡Listo!</button>
+  </form>
+</template>

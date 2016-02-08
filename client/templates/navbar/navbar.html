@@ -7,6 +7,9 @@
           {{#if currentUser}}
             <a class="item" href="/users">Usuarios</a>
           {{/if}}
+          {{#if currentUser.admin}}
+            <a class="item" href="/courses/new">Crear Ramo</a>
+          {{/if}}
         </span>
         {{#if currentUser}}
           <span class="aligner">

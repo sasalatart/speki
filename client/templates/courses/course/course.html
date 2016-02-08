@@ -1,8 +1,20 @@
 <template name="course">
   <div class="course">
     <h1>{{name}}</h1>
+    {{#if currentUser.admin}}
+      <span class="aligner">
+        <button class="ui mini orange labeled icon button edit-course">
+          <i class="ui edit icon"></i>
+          Editar
+        </button>
+        <button class="ui mini red labeled icon button remove-course">
+          <i class="ui remove icon"></i>
+          Eliminar
+        </button>
+      </span>
+    {{/if}}
     <h3>{{initials}} | {{school}}</h3>
-    <div class="information">{{information}}</div>
+    <div class="information">{{getInformation}}</div>
   </div>
 
   <div class="aligner read-select">
@@ -54,6 +66,18 @@
         {{#each questions}}
           {{> question}}
         {{/each}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if currentUser.admin}}
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Editar Ramo
+      </div>
+      <div class="content">
+        {{> editCourse}}
       </div>
     </div>
   {{/if}}
