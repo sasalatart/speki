@@ -49,23 +49,27 @@ body {
   flex: 1 1 auto;
 }
 
-.navbar > .ui.container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+.navbar * {
   max-height: inherit;
-  min-height: inherit;;
+  min-height: inherit;
 }
 
 .navbar .brand {
   color: #ffffff;
   font-size: 2em;
   font-weight: bolder;
+  line-height: 2em;
+  margin-right: 1em;
 }
 
-.navbar img {
-  max-height: 4em;
-  min-height: 4em;
+.navbar .item {
+  color: #ffffff;
+  line-height: 4em;
+  padding: 0 1em;
+}
+
+.navbar .item:hover {
+  background: #851513;
 }
 
 .wrapper {
@@ -86,7 +90,7 @@ body {
   box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.6);
   display: inline-block;
   font-size: 2.25em;
-  margin: 1em 0 0.5em 0;
+  margin-bottom: 1em;
   padding: 0.25em;
 }
 
@@ -160,4 +164,14 @@ label {
 .thumbs.icon + span {
   color: #000000;
   margin-right: 1em;
+}
+
+.user {
+  display: inline-block;
+}
+
+.user img {
+  height: 2em;
+  margin: 0 0.5em;
+  width: 2em;
 }

@@ -4,13 +4,13 @@ Template.landingPage.onDestroyed(() => {
 
 Template.search.events({
   'keyup .search-input': function(event) {
-    Session.set('searchText', event.target.value);
+    Session.set('searchCourseText', event.target.value);
   }
 });
 
 Template.search.helpers({
   courses: function() {
-    var searchText = Session.get('searchText');
+    var searchText = Session.get('searchCourseText');
     if (searchText) {
       var parts = searchText.trim().split(/[\-\:]+/);
       var regExp = new RegExp("\^(" + parts.join('|') + ")", "ig");

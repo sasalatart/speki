@@ -1,0 +1,18 @@
+<template name="users">
+  <div class="users">
+    <div class="aligner">
+      <div class="search-bar">
+        <i class="search icon"></i>
+        <input class="search-input" placeholder="Buscar usuario..." type="text">
+      </div>
+    </div>
+
+    <div class="ui three column grid">
+      {{#each users}}
+        <div class="column">
+          {{> user}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>
