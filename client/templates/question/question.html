@@ -1,17 +1,19 @@
 <template name="question">
   <div class="ui segment">
     <div class="comment">
-      <span class="float-right">
-        <i class="ui blue alarm {{#if subscribed}}slash{{/if}} icon link toggle-subscription"></i>
-        {{#if hasPrivileges}}
-          {{#unless isEditing}}
-            {{#if isOwner}}
-              <i class="ui orange edit icon link edit-question"></i>
-            {{/if}}
-          {{/unless}}
-          <i class="ui red remove icon link remove-question"></i>
-        {{/if}}
-      </span>
+      {{#if currentUser}}
+        <span class="float-right">
+          <i class="ui blue alarm {{#if subscribed}}slash{{/if}} icon link toggle-subscription"></i>
+          {{#if hasPrivileges}}
+            {{#unless isEditing}}
+              {{#if isOwner}}
+                <i class="ui orange edit icon link edit-question"></i>
+              {{/if}}
+            {{/unless}}
+            <i class="ui red remove icon link remove-question"></i>
+          {{/if}}
+        </span>
+      {{/if}}
       <a class="avatar">
         <img src="{{author.profile.picture}}">
       </a>
@@ -37,9 +39,11 @@
         {{/unless}}
       </div>
       {{#unless isAnswering}}
-        <div class="actions">
-          <a class="reply answer-question">Responder</a>
-        </div>
+        {{#if currentUser}}
+          <div class="actions">
+            <a class="reply answer-question">Responder</a>
+          </div>
+        {{/if}}
       {{else}}
         <form class="ui reply form new-answer">
           <div class="field">

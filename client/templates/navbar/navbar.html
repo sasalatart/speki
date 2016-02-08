@@ -4,10 +4,8 @@
       <div class="aligner-space-between">
         <span class="aligner">
           <a class="brand" href="/">Speki</a>
-          {{#if currentUser}}
-            <a class="item" href="/users">Usuarios</a>
-          {{/if}}
           {{#if currentUser.admin}}
+            <a class="item" href="/users">Usuarios</a>
             <a class="item" href="/courses/new">Crear Ramo</a>
           {{/if}}
         </span>

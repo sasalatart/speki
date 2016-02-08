@@ -1,3 +1,7 @@
+Template.editCourse.rendered = function(){
+  $('select.dropdown').dropdown();
+};
+
 Template.editCourse.events({
   'submit .edit-course-form': function(event) {
     event.preventDefault();

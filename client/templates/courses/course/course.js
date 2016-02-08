@@ -1,4 +1,4 @@
-Template.course.onCreated(() => {
+Template.course.onCreated(function() {
   Session.set('reading', 'testimonies');
 });
 

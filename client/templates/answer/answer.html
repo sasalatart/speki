@@ -36,9 +36,9 @@
         </form>
       {{/unless}}
       <div class="actions">
-        <i class="ui green {{#if canAgree}}outline{{/if}} thumbs up icon link agree"></i>
+        <i class="ui green {{#if canAgree}}outline{{/if}} thumbs up icon {{#if currentUser}}link agree{{/if}}"></i>
         <span>{{agrees}}</span>
-        <i class="ui red {{#if canDisagree}}outline{{/if}} thumbs down icon link disagree"></i>
+        <i class="ui red {{#if canDisagree}}outline{{/if}} thumbs down icon {{#if currentUser}}link disagree{{/if}}"></i>
         <span>{{disagrees}}</span>
       </div>
     </div>
