@@ -1,16 +1,17 @@
 <template name="question">
   <div class="ui segment">
     <div class="comment">
-      {{#if hasPrivileges}}
-        <span class="float-right">
+      <span class="float-right">
+        <i class="ui blue alarm {{#if subscribed}}slash{{/if}} icon link toggle-subscription"></i>
+        {{#if hasPrivileges}}
           {{#unless isEditing}}
             {{#if isOwner}}
               <i class="ui orange edit icon link edit-question"></i>
             {{/if}}
           {{/unless}}
           <i class="ui red remove icon link remove-question"></i>
-        </span>
-      {{/if}}
+        {{/if}}
+      </span>
       <a class="avatar">
         <img src="{{author.profile.picture}}">
       </a>

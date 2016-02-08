@@ -38,3 +38,7 @@ Meteor.publish('questions', courseID => {
 Meteor.publish('answers', courseID => {
   return Answers.find({ courseID: courseID });
 });
+
+Meteor.publish('messages', function() {
+  return Messages.find({ receiver: this.userId });
+});
