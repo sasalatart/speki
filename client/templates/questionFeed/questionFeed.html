@@ -1,0 +1,26 @@
+<template name="questionFeed">
+  <a href="{{pathFor 'coursePage' _id=this.courseID}}">
+    <div class="ui dimmable question-feed">
+      <h4>{{parentCourse.name}}</h4>
+      <div class="aligner-space-between">
+        <div class="user">
+          <span class="aligner">
+            <img src="{{author.profile.picture}}">
+            <span>{{author.profile.name}}</span>
+          </span>
+        </div>
+        <span class="date">{{dateWritten}}</span>
+      </div>
+      <div class="aligner text">
+        {{text}}
+      </div>
+      <div class="ui dimmer">
+        <div class="content">
+          <div class="center">
+            <h1>Ir a la pregunta</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</template>

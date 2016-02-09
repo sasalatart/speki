@@ -180,3 +180,30 @@ label {
 ul.notifications {
   position: fixed;
 }
+
+.question-feed {
+  background: rgba(125, 125, 200, 0.4);
+  border-radius: 0.5em;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: 40em;
+}
+
+.question-feed .text {
+  background: rgba(125, 125, 200, 0.8);
+  border-radius: 0.25em;
+  flex-grow: 2;
+  margin-top: 0.5em;
+  padding: 0.5em;
+}
+
+.question-feed .date {
+  margin-left: 5em;
+}
+
+.question-feed .ui.dimmer {
+  border-radius: 0.5em;
+}

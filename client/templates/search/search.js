@@ -12,6 +12,7 @@ Template.search.helpers({
   courses: function() {
     var searchText = Session.get('searchCourseText');
     if (searchText) {
+      $('.feed').slideUp();
       var parts = searchText.trim().split(/[\-\:]+/);
       var regExp = new RegExp("\^(" + parts.join('|') + ")", "ig");
       var selector = {
@@ -21,7 +22,7 @@ Template.search.helpers({
 
       return Courses.find(selector, options).fetch();
     } else {
-      return;
+      $('.feed').slideDown('slow');
     }
   }
 });

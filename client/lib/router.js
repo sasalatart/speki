@@ -18,7 +18,10 @@ Router.configure({
 });
 
 Router.route('/', {
-  template: 'landingPage'
+  template: 'landingPage',
+  waitOn: function() {
+    subs.subscribe('recent-questions');
+  }
 });
 
 Router.route('/courses/new', {
