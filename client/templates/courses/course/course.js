@@ -4,10 +4,7 @@ Template.course.onCreated(function() {
 
 Template.course.events({
   'click .remove-course': function(event) {
-    Meteor.call('removeCourse', this._id, function(error, result) {
-      if (error) { alert(error.reason); }
-      Router.go('/');
-    });
+    Meteor.call('removeCourse', this._id, errorCallback);
   },
   'click .edit-course': function(event) {
     $('.ui.modal').modal('show');
@@ -21,13 +18,13 @@ Template.course.events({
   'submit .new-testimony': function(event) {
     event.preventDefault();
     var text = event.target.text.value;
-    Meteor.call('addTestimony', this._id, text);
+    Meteor.call('addTestimony', this._id, text, errorCallback);
     event.target.text.value = "";
   },
   'submit .new-question': function(event) {
     event.preventDefault();
     var text = event.target.text.value;
-    Meteor.call('addQuestion', this._id, text);
+    Meteor.call('addQuestion', this._id, text, errorCallback);
     event.target.text.value = "";
   }
 });

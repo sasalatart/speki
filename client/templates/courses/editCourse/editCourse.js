@@ -11,7 +11,7 @@ Template.editCourse.events({
     var school = event.target.school.value;
     var information = event.target.information.value;
 
-    Meteor.call('updateCourse', this._id, initials, name, school, information);
+    Meteor.call('updateCourse', this._id, initials, name, school, information, errorCallback);
     $('.ui.modal').modal('hide');
   }
 });
