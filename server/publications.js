@@ -41,3 +41,7 @@ Meteor.publish('answers', courseID => {
 Meteor.publish('messages', function() {
   return Messages.find({ receiver: this.userId });
 });
+
+Meteor.publish('recent-questions', function() {
+  return Questions.find({}, { sort: { $natural : 1 }, limit: 20 });
+})

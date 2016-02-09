@@ -1,5 +1,5 @@
 Template.course.onCreated(function() {
-  Session.set('reading', 'testimonies');
+  Session.set('reading', 'questions');
 });
 
 Template.course.events({
