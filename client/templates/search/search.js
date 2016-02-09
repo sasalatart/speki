@@ -1,6 +1,6 @@
-Template.landingPage.onDestroyed(() => {
-  delete Session.keys['searchText'];
-});
+Template.search.destroyed = function() {
+  delete Session.keys['searchCourseText'];
+};
 
 Template.search.events({
   'keyup .search-input': function(event) {

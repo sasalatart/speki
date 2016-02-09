@@ -105,26 +105,23 @@ body {
 
 .search-results {
   font-size: 0.5em;
-  height: 0;
   margin: 0 !important;
   padding: 0 !important;
-  transition: all 0.25s;
-}
-
-.search-bar:hover .search-results {
-  height: 20em;
-  transition: all 0.25s;
 }
 
 .search-results > a {
   color: #000000;
   max-width: 25em;
   min-width: 25em;
-  padding: 0 0.5em;
+  padding: 0.25em 0.50em;
 }
 
 .search-results > a:hover {
-  color: #4389a2;
+  background: #5c258d;
+  background: -webkit-linear-gradient(right, #5c258d, #4389a2);
+  background: -o-linear-gradient(right, #5c258d, #4389a2);
+  background: linear-gradient(to left, #5c258d, #4389a2);
+  color: #ffffff;
 }
 
 .truncate {
