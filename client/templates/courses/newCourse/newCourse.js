@@ -10,7 +10,7 @@ Template.newCourse.events({
     var school = event.target.school.value;
     var information = event.target.information.value;
 
-    Meteor.call('addCourse', initials, name, school, information);
+    Meteor.call('addCourse', initials, name, school, information, errorCallback);
 
     event.target.initials.value = "";
     event.target.name.value = "";

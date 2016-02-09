@@ -4,7 +4,7 @@ Template.question.events({
   },
   'submit .edit-question-form': function(event) {
     event.preventDefault();
-    Meteor.call('updateQuestion', this._id, event.target.text.value);
+    Meteor.call('updateQuestion', this._id, event.target.text.value, errorCallback);
     Session.set('editingQuestion', null);
   },
   'click .edit-question-cancel': function(event) {
@@ -12,14 +12,14 @@ Template.question.events({
     Session.set('editingQuestion', null);
   },
   'click .remove-question': function(event) {
-    Meteor.call('removeQuestion', this._id);
+    Meteor.call('removeQuestion', this._id, errorCallback);
   },
   'click .answer-question': function(event) {
     Session.set('answeringQuestion', this._id);
   },
   'submit .new-answer': function(event) {
     event.preventDefault();
-    Meteor.call('addAnswer', this._id, this.courseID, event.target.text.value);
+    Meteor.call('addAnswer', this._id, this.courseID, event.target.text.value, errorCallback);
     Session.set('answeringQuestion', null);
   },
   'click .answer-question-cancel': function(event) {
@@ -27,7 +27,7 @@ Template.question.events({
     Session.set('answeringQuestion', null);
   },
   'click .toggle-subscription': function(event) {
-    Meteor.call('toggleSubscription', this._id);
+    Meteor.call('toggleSubscription', this._id, errorCallback);
   }
 });
 
