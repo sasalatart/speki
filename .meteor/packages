@@ -25,3 +25,4 @@ flemay:less-autoprefixer
 jquery
 gfk:notifications
 okgrow:router-autoscroll
+sacha:spin

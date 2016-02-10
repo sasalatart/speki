@@ -23,7 +23,8 @@ var OnBeforeActions = {
 };
 
 Router.configure({
-  layoutTemplate: 'appLayout'
+  layoutTemplate: 'layoutTemplate',
+  loadingTemplate: 'loadingTemplate'
 });
 
 Router.route('/', {
