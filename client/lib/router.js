@@ -53,7 +53,9 @@ Router.route('/courses/:_id', {
   },
   onAfterAction: function() {
     Session.set('reading', 'questions');
-    Meteor.call('removeCourseMessages', this.params._id, errorCallback);
+    if (Meteor.userId()) {
+      Meteor.call('removeCourseMessages', this.params._id, errorCallback);
+    }
   }
 });
 
