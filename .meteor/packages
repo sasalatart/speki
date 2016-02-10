@@ -24,3 +24,4 @@ semantic:ui
 flemay:less-autoprefixer
 jquery
 gfk:notifications
+okgrow:router-autoscroll
