@@ -1,8 +1,8 @@
 <template name="landingPage">
   {{> search}}
 
-  <h1>Preguntas Más Nuevas</h1>
   <div class="feed aligner flex-column">
+    <h1>Preguntas Más Nuevas</h1>
     {{#each recentQuestions}}
       {{> questionFeed}}
     {{/each}}

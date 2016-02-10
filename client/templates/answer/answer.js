@@ -1,4 +1,4 @@
-Template.question.events({
+Template.answer.events({
   'click .edit-answer': function(event) {
     Session.set('editingAnswer', this._id);
   },
@@ -45,9 +45,9 @@ Template.answer.helpers({
     return this.disagrees.length;
   },
   canAgree: function() {
-    return this.agrees.indexOf(this.author) === -1;
+    return this.agrees.indexOf(Meteor.userId()) === -1;
   },
   canDisagree: function() {
-    return this.disagrees.indexOf(this.author) === -1;
+    return this.disagrees.indexOf(Meteor.userId()) === -1;
   }
 });

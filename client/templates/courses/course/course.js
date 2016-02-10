@@ -1,7 +1,3 @@
-Template.course.onCreated(function() {
-  Session.set('reading', 'questions');
-});
-
 Template.course.events({
   'click .remove-course': function(event) {
     Meteor.call('removeCourse', this._id, errorCallback);

@@ -59,7 +59,7 @@ body {
   font-size: 2em;
   font-weight: bolder;
   line-height: 2em;
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 .navbar .item {
@@ -163,11 +163,11 @@ label {
   margin-right: 1em;
 }
 
-.user {
+.user-line {
   display: inline-block;
 }
 
-.user img {
+.user-line img {
   height: 2em;
   margin: 0 0.5em;
   width: 2em;
@@ -204,6 +204,19 @@ ul.notifications {
   margin-left: 5em;
 }
 
-.question-feed .ui.dimmer {
+.notification-message {
+  background: rgba(125, 125, 200, 0.4);
+  border-radius: 0.5em;
+  margin: 1em 0;
+  padding: 0.5em;
+}
+
+.notification-message .answer {
+  font-style: italic;
+  margin-left: 3em;
+}
+
+.question-feed .ui.dimmer,
+.notification-message .ui.dimmer {
   border-radius: 0.5em;
 }

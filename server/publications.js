@@ -35,11 +35,19 @@ Meteor.publish('questions', courseID => {
 });
 
 Meteor.publish('answers', courseID => {
-  return Answers.find({ courseID: courseID });
+  if (courseID) {
+    return Answers.find({ courseID: courseID });
+  } else {
+    return Answers.find();
+  }
 });
 
 Meteor.publish('messages', function() {
-  return Messages.find({ receiver: this.userId });
+  if (this.userId) {
+    return Messages.find({ receiver: this.userId });
+  } else {
+    this.ready();
+  }
 });
 
 Meteor.publish('recent-questions', function() {
