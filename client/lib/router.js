@@ -95,7 +95,7 @@ Router.route('/notificationMessages', {
   template: 'notificationMessages',
   fastRender: true,
   waitOn: function() {
-    subs.subscribe('answers');
+    subs.subscribe('message-answers');
   }
 });
 

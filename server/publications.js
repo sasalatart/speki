@@ -35,11 +35,7 @@ Meteor.publish('questions', courseID => {
 });
 
 Meteor.publish('answers', courseID => {
-  if (courseID) {
-    return Answers.find({ courseID: courseID });
-  } else {
-    return Answers.find();
-  }
+  return Answers.find({ courseID: courseID });
 });
 
 Meteor.publish('messages', function() {
@@ -48,6 +44,11 @@ Meteor.publish('messages', function() {
   } else {
     this.ready();
   }
+});
+
+Meteor.publish('message-answers', function() {
+  mySubscribedQuestions = Questions.find({ subscribers: this.userId }).fetch().map(question => question._id);
+  return Answers.find({ questionID: { $in: mySubscribedQuestions } });
 });
 
 Meteor.publish('recent-questions', function() {
@@ -59,4 +60,4 @@ Meteor.publish('recent-questions', function() {
   }
 
   return Questions.find({}, options);
-})
+});
