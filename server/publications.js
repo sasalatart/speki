@@ -51,5 +51,12 @@ Meteor.publish('messages', function() {
 });
 
 Meteor.publish('recent-questions', function() {
-  return Questions.find({}, { sort: { createdAt : -1 }, limit: 20 });
+  var options = {
+    sort: {
+      createdAt : -1
+    },
+    limit: 20
+  }
+
+  return Questions.find({}, options);
 })
