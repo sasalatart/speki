@@ -43,6 +43,6 @@ Template.course.helpers({
     return Testimonies.find({ courseID: this._id });
   },
   'questions': function() {
-    return Questions.find({ courseID: this._id });
+    return Questions.find({ courseID: this._id }, { sort: { createdAt: -1 } });
   }
 });
