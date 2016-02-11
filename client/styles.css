@@ -221,3 +221,14 @@ ul.notifications {
 .notification-message .ui.dimmer {
   border-radius: 0.5em;
 }
+
+.edit-testimony-form textarea + span,
+.edit-question-form textarea + span,
+.edit-answer-form textarea + span,
+.new-answer textarea + span {
+  color: #000000;
+}
+
+.error-red {
+  color: #ff0000 !important;
+}

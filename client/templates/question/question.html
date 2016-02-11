@@ -31,10 +31,17 @@
         {{else}}
           <form class="ui form edit-question-form">
             <div class="field">
-              <textarea name="text" rows="2" value="{{ text }}"></textarea>
+              <textarea name="text" rows="4" value="{{ text }}"></textarea>
+              <span class="float-right {{#if illegalLength 'questionLength' 1000}}error-red{{/if}}">
+                {{length 'questionLength'}}/1000 caracteres
+              </span>
             </div>
-            <button class="ui button" type="submit">¡Listo!</button>
-            <button class="ui button edit-question-cancel">Cancelar</button>
+            <button class="ui {{#if illegalLength 'questionLength' 1000}}disabled{{/if}} button" type="submit">
+              ¡Listo!
+            </button>
+            <button class="ui button edit-question-cancel">
+              Cancelar
+            </button>
           </form>
         {{/unless}}
       </div>
@@ -48,12 +55,17 @@
         <form class="ui reply form new-answer">
           <div class="field">
             <textarea name="text" rows="2"></textarea>
+            <span class="float-right {{#if illegalLength 'answerLength' 1000}}error-red{{/if}}">
+              {{length 'answerLength'}}/1000 caracteres
+            </span>
           </div>
-          <button class="ui primary submit labeled icon button" type="submit">
+          <button class="ui primary submit labeled icon {{#if illegalLength 'answerLength' 1000}}disabled{{/if}} button" type="submit">
             <i class="write icon"></i>
             <span>Responder</span>
           </button>
-          <button class="ui button answer-question-cancel">Cancelar</button>
+          <button class="ui button answer-question-cancel">
+            Cancelar
+          </button>
         </form>
       {{/unless}}
       {{#if hasAnswers}}

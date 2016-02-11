@@ -1,11 +1,15 @@
 Template.answer.events({
   'click .edit-answer': function(event) {
     Session.set('editingAnswer', this._id);
+    Session.set('answerLength', this.text.length);
   },
   'submit .edit-answer-form': function(event) {
     event.preventDefault();
     Meteor.call('updateAnswer', this._id, event.target.text.value, errorCallback);
     Session.set('editingAnswer', null);
+  },
+  'keyup .edit-answer-form textarea': function(event) {
+    Session.set('answerLength', event.target.value.length);
   },
   'click .edit-answer-cancel': function(event) {
     event.preventDefault();
@@ -49,5 +53,11 @@ Template.answer.helpers({
   },
   canDisagree: function() {
     return this.disagrees.indexOf(Meteor.userId()) === -1;
+  },
+  length: function() {
+    return Session.get('answerLength') || 0;
+  },
+  illegalLength: function() {
+    return Session.get('answerLength') > 1000;
   }
 });
