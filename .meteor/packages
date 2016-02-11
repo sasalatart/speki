@@ -9,6 +9,7 @@ mobile-experience       # Packages for a great mobile UX
 mongo                   # The database Meteor supports right now
 blaze-html-templates    # Compile .html files into Meteor Blaze views
 session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
 tracker                 # Meteor's client-side reactive programming library
 
 standard-minifiers      # JS/CSS minifiers run for production mode
@@ -20,9 +21,6 @@ service-configuration
 iron:router
 check
 meteorhacks:subs-manager
-semantic:ui
-flemay:less-autoprefixer
-jquery
 gfk:notifications
 okgrow:router-autoscroll
 sacha:spin
