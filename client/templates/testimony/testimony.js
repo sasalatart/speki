@@ -1,11 +1,15 @@
 Template.testimony.events({
   'click .edit-testimony': function(event) {
     Session.set('editingTestimony', this._id);
+    Session.set('testimonyLength', this.text.length);
   },
   'submit .edit-testimony-form': function(event) {
     event.preventDefault();
     Meteor.call('updateTestimony', this._id, event.target.text.value, errorCallback);
     Session.set('editingTestimony', null);
+  },
+  'keyup .edit-testimony-form textarea': function(event) {
+    Session.set('testimonyLength', event.target.value.length);
   },
   'click .edit-testimony-cancel': function(event) {
     event.preventDefault();
@@ -31,5 +35,11 @@ Template.testimony.helpers({
   },
   isEditing: function() {
     return Session.equals('editingTestimony', this._id);
+  },
+  length: function() {
+    return Session.get('testimonyLength') || 0;
+  },
+  illegalLength: function() {
+    return Session.get('testimonyLength') > 1000;
   }
 });

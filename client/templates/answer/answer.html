@@ -29,10 +29,17 @@
       {{else}}
         <form class="ui form edit-answer-form">
           <div class="field">
-            <textarea name="text" value="{{text}}" rows="2"></textarea>
+            <textarea name="text" value="{{text}}" rows="4"></textarea>
+            <span class="float-right {{#if illegalLength}}error-red{{/if}}">
+              {{length}}/1000 caracteres
+            </span>
           </div>
-          <button class="ui button" type="submit">¡Listo!</button>
-          <button class="ui button edit-answer-cancel">Cancelar</button>
+          <button class="ui {{#if illegalLength}}disabled{{/if}} button" type="submit">
+            ¡Listo!
+          </button>
+          <button class="ui button edit-answer-cancel">
+            Cancelar
+          </button>
         </form>
       {{/unless}}
       <div class="actions">

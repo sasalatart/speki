@@ -1,11 +1,15 @@
 Template.question.events({
   'click .edit-question': function(event) {
     Session.set('editingQuestion', this._id);
+    Session.set('questionLength', this.text.length);
   },
   'submit .edit-question-form': function(event) {
     event.preventDefault();
     Meteor.call('updateQuestion', this._id, event.target.text.value, errorCallback);
     Session.set('editingQuestion', null);
+  },
+  'keyup .edit-question-form textarea': function(event) {
+    Session.set('questionLength', event.target.value.length);
   },
   'click .edit-question-cancel': function(event) {
     event.preventDefault();
@@ -16,11 +20,15 @@ Template.question.events({
   },
   'click .answer-question': function(event) {
     Session.set('answeringQuestion', this._id);
+    Session.set('answerLength', 0);
   },
   'submit .new-answer': function(event) {
     event.preventDefault();
     Meteor.call('addAnswer', this._id, this.courseID, event.target.text.value, errorCallback);
     Session.set('answeringQuestion', null);
+  },
+  'keyup .new-answer textarea': function(event) {
+    Session.set('answerLength', event.target.value.length);
   },
   'click .answer-question-cancel': function(event) {
     event.preventDefault();
@@ -58,5 +66,11 @@ Template.question.helpers({
   },
   subscribed: function() {
     return this.subscribers.indexOf(Meteor.userId()) !== -1;
+  },
+  length: function(key) {
+    return Session.get(key);
+  },
+  illegalLength: function(key, length) {
+    return Session.get(key) > length;
   }
 });

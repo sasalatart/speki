@@ -18,15 +18,15 @@
   </div>
 
   <div class="aligner read-select">
-    <button id="testimonies" class="ui red huge button {{#if questionsActive}}inverted{{/if}}">
+    <button id="testimonies" class="ui red huge button {{#if activeTab 'questions'}}inverted{{/if}}">
       Testimonios
     </button>
-    <button id="questions" class="ui teal huge button {{#if testimoniesActive}}inverted{{/if}}">
+    <button id="questions" class="ui teal huge button {{#if activeTab 'testimonies'}}inverted{{/if}}">
       Preguntas
     </button>
   </div>
 
-  {{#if testimoniesActive}}
+  {{#if activeTab 'testimonies'}}
     <h3 class="ui dividing header">Testimonios</h3>
 
     {{#if currentUser}}
@@ -35,8 +35,13 @@
           <div class="field">
             <label for="testimony-input">Tu Testimonio</label>
             <textarea id="testimony-input" name="text" rows="2"></textarea>
+            <span class="float-right {{#if illegalLength 'newTestimonyLength' 1000}}error-red{{/if}}">
+              {{length 'newTestimonyLength'}}/1000 caracteres
+            </span>
           </div>
-          <button class="ui fluid button" type="submit">¡Listo!</button>
+          <button class="ui {{#if illegalLength 'newTestimonyLength' 1000}}disabled{{/if}} fluid button" type="submit">
+            ¡Listo!
+          </button>
         </form>
       </div>
     {{/if}}
@@ -50,7 +55,7 @@
     </div>
   {{/if}}
 
-  {{#if questionsActive}}
+  {{#if activeTab 'questions'}}
     <h3 class="ui dividing header">Preguntas</h3>
 
     {{#if currentUser}}
@@ -59,8 +64,13 @@
           <div class="field">
             <label for="question-input">Tu Pregunta</label>
             <textarea id="question-input" name="text" rows="2"></textarea>
+            <span class="float-right {{#if illegalLength 'newQuestionLength' 1000}}error-red{{/if}}">
+              {{length 'newQuestionLength'}}/1000 caracteres
+            </span>
           </div>
-          <button class="ui fluid button" type="submit">¡Listo!</button>
+          <button class="ui {{#if illegalLength 'newQuestionLength' 1000}}disabled{{/if}} fluid button" type="submit">
+            ¡Listo!
+          </button>
         </form>
       </div>
     {{/if}}
