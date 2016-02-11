@@ -49,7 +49,9 @@ var OnBeforeActions = {
 };
 
 Router.route('/', {
+  name: 'landingPage',
   template: 'landingPage',
+  fastRender: true,
   waitOn: function() {
     subs.subscribe('recent-questions');
   }
@@ -57,12 +59,14 @@ Router.route('/', {
 
 Router.route('/courses/new', {
   name: 'newCoursePage',
-  template: 'newCourse'
+  template: 'newCourse',
+  fastRender: true
 });
 
 Router.route('/courses/:_id', {
   name: 'coursePage',
   template: 'course',
+  fastRender: true,
   data: function() {
     return Courses.findOne({ _id: this.params._id });
   },
@@ -82,12 +86,14 @@ Router.route('/courses/:_id', {
 
 Router.route('/users', {
   name: 'usersPage',
-  template: 'users'
+  template: 'users',
+  fastRender: true
 });
 
 Router.route('/notificationMessages', {
   name: 'notificationMessagesPage',
   template: 'notificationMessages',
+  fastRender: true,
   waitOn: function() {
     subs.subscribe('answers');
   }
