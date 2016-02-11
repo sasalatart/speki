@@ -26,3 +26,6 @@ jquery
 gfk:notifications
 okgrow:router-autoscroll
 sacha:spin
+meteorhacks:kadira
+meteorhacks:kadira-profiler
+kadira:debug

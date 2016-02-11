@@ -1,12 +1,18 @@
-ServiceConfiguration.configurations.remove({
-  service: 'facebook'
-});
+configureFacebook = function(config) {
+  ServiceConfiguration.configurations.remove({
+    service: "facebook"
+  });
 
-ServiceConfiguration.configurations.insert({
-  service: 'facebook',
-  appId: process.env.SPEKI_FB_ID,
-  secret: process.env.SPEKI_FB_SECRET
-});
+ ServiceConfiguration.configurations.insert({
+    service: "facebook",
+    appId: config.clientId,
+    secret: config.secret
+  });
+};
+
+if (Meteor.settings.facebook) {
+  configureFacebook(Meteor.settings.facebook);
+}
 
 Accounts.onCreateUser((options, user) => {
   user.admin = (Meteor.users.find().count() === 0);
