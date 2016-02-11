@@ -112,8 +112,6 @@ body {
 
 .search-results > a {
   color: #000000;
-  max-width: 25em;
-  min-width: 25em;
   padding: 0.25em 0.50em;
 }
 
