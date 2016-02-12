@@ -1,8 +1,3 @@
-Template.course.rendered = function() {
-  Session.set('newTestimonyLength', 0);
-  Session.set('newQuestionLength', 0);
-}
-
 Template.course.events({
   'click .remove-course': function(event) {
     Meteor.call('removeCourse', this._id, errorCallback);

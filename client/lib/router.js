@@ -3,6 +3,25 @@ subs = new SubsManager({
   expireIn: 10 // any subscription will expire after 10 minutes of inactivity
 });
 
+var OnBeforeActions = {
+  loginRequired: function() {
+    if (Meteor.userId()) {
+      this.next();
+    } else {
+      Router.go('/');
+      Notifications.error('No autorizado', 'Debes iniciar sesión para esto.');
+    }
+  },
+  adminRequired: function() {
+    if (Meteor.userId() && Meteor.user().admin) {
+      this.next();
+    } else {
+      Router.go('/');
+      Notifications.error('No autorizado', 'Debes ser administrador para esto.');
+    }
+  }
+};
+
 Router.configure({
   layoutTemplate: 'layoutTemplate',
   loadingTemplate: 'loadingTemplate',
@@ -29,25 +48,6 @@ Router.configure({
   }
 });
 
-var OnBeforeActions = {
-  loginRequired: function() {
-    if (Meteor.userId()) {
-      this.next();
-    } else {
-      Router.go('/');
-      Notifications.error('No autorizado', 'Debes iniciar sesión para esto.');
-    }
-  },
-  adminRequired: function() {
-    if (Meteor.userId() && Meteor.user().admin) {
-      this.next();
-    } else {
-      Router.go('/');
-      Notifications.error('No autorizado', 'Debes ser administrador para esto.');
-    }
-  }
-};
-
 Router.route('/', {
   name: 'landingPage',
   template: 'landingPage',
@@ -72,12 +72,14 @@ Router.route('/courses/:_id', {
   },
   waitOn: function() {
     subs.subscribe('course', this.params._id);
+    subs.subscribe('testimonies', this.params._id);
     subs.subscribe('questions', this.params._id);
     subs.subscribe('answers', this.params._id);
-    subs.subscribe('testimonies', this.params._id);
   },
   onAfterAction: function() {
     Session.set('reading', 'questions');
+    Session.set('newTestimonyLength', 0);
+    Session.set('newQuestionLength', 0);
     if (Meteor.userId()) {
       Meteor.call('removeCourseMessages', this.params._id, errorCallback);
     }
@@ -95,7 +97,7 @@ Router.route('/notificationMessages', {
   template: 'notificationMessages',
   fastRender: true,
   waitOn: function() {
-    subs.subscribe('message-answers');
+    Meteor.subscribe('messages-answers');
   }
 });
 
