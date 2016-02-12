@@ -244,7 +244,7 @@ ul.notifications {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin: 0.5em 0;
+  margin: 1.5em 0;
   max-width: 650px;
   padding: 0.5em;
 }
@@ -267,7 +267,7 @@ ul.notifications {
 .notification-message {
   background: rgba(125, 125, 200, 0.4);
   border-radius: 0.5em;
-  margin: 1em 0;
+  margin: 1.5em 0;
   padding: 0.5em;
 }
 
