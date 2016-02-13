@@ -2,8 +2,27 @@
   <div class="notification-messages">
     <h1>Notificaciones</h1>
 
-    {{#each messages}}
-      {{> notificationMessage}}
-    {{/each}}
+    {{#if anyMessage}}
+      <div class="aligner">
+        <div class="ui comments">
+          {{#each messages}}
+            {{> notificationMessage}}
+          {{/each}}
+        </div>
+      </div>
+    {{else}}
+      <div class="ui huge info icon message">
+        <i class="frown icon"></i>
+        <div class="content">
+          <div class="header">
+            No hay nuevas notificaciones.
+          </div>
+          <p>
+            ¡Escribe una pregunta, o suscríbete a alguna para recibir una
+            notificación cada vez que alguien la responda!
+          </p>
+        </div>
+      </div>
+    {{/if}}
   </div>
 </template>
