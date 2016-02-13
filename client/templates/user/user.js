@@ -1,6 +1,6 @@
 Template.user.events({
   'click .admin-toggler': function(event) {
-    Meteor.call('toggleAdmin', this._id, errorCallback);
+    Meteor.call('toggleAdmin', this._id, methodCallback);
   }
 });
 

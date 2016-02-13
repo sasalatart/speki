@@ -5,7 +5,7 @@ Template.answer.events({
   },
   'submit .edit-answer-form': function(event) {
     event.preventDefault();
-    Meteor.call('updateAnswer', this._id, event.target.text.value, errorCallback);
+    Meteor.call('updateAnswer', this._id, event.target.text.value, methodCallback);
     Session.set('editingAnswer', null);
   },
   'keyup .edit-answer-form textarea': function(event) {
@@ -16,13 +16,13 @@ Template.answer.events({
     Session.set('editingAnswer', null);
   },
   'click .remove-answer': function(event) {
-    Meteor.call('removeAnswer', this._id, errorCallback);
+    Meteor.call('removeAnswer', this._id, methodCallback);
   },
   'click .agree': function(event) {
-    Meteor.call('agree', this._id, errorCallback);
+    Meteor.call('agree', this._id, methodCallback);
   },
   'click .disagree': function(event) {
-    Meteor.call('disagree', this._id, errorCallback);
+    Meteor.call('disagree', this._id, methodCallback);
   }
 });
 

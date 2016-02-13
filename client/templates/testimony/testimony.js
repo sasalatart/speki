@@ -5,7 +5,7 @@ Template.testimony.events({
   },
   'submit .edit-testimony-form': function(event) {
     event.preventDefault();
-    Meteor.call('updateTestimony', this._id, event.target.text.value, errorCallback);
+    Meteor.call('updateTestimony', this._id, event.target.text.value, methodCallback);
     Session.set('editingTestimony', null);
   },
   'keyup .edit-testimony-form textarea': function(event) {
@@ -16,7 +16,7 @@ Template.testimony.events({
     Session.set('editingTestimony', null);
   },
   'click .remove-testimony': function(event) {
-    Meteor.call('removeTestimony', this._id, errorCallback);
+    Meteor.call('removeTestimony', this._id, methodCallback);
   }
 });
 
