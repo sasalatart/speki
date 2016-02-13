@@ -53,7 +53,7 @@ Router.route('/', {
   template: 'landingPage',
   fastRender: true,
   waitOn: function() {
-    subs.subscribe('recent-questions');
+    return subs.subscribe('recent-questions');
   }
 });
 
@@ -74,7 +74,7 @@ Router.route('/courses/:_id', {
     subs.subscribe('course', this.params._id);
     subs.subscribe('testimonies', this.params._id);
     subs.subscribe('questions', this.params._id);
-    subs.subscribe('answers', this.params._id);
+    return subs.subscribe('answers', this.params._id);
   },
   onAfterAction: function() {
     Session.set('reading', 'questions');
@@ -97,7 +97,7 @@ Router.route('/notificationMessages', {
   template: 'notificationMessages',
   fastRender: true,
   waitOn: function() {
-    Meteor.subscribe('messages-answers');
+    return Meteor.subscribe('messages-answers');
   }
 });
 
