@@ -1,5 +1,5 @@
 Meteor.publish('courses', function() {
-  var options = { fields: { _id: 1, 'initials': 1, 'name': 1 } };
+  var options = { fields: { _id: 1, 'initials': 1, 'name': 1, 'school': 1 } };
   return Courses.find({}, options);
 });
 
