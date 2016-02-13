@@ -46,13 +46,25 @@
       </div>
     {{/if}}
 
-    <div class="aligner">
-      <div class="ui comments">
-        {{#each testimonies}}
-          {{> testimony}}
-        {{/each}}
+    {{#if anyTestimony}}
+      <div class="aligner">
+        <div class="ui comments">
+          {{#each testimonies}}
+            {{> testimony}}
+          {{/each}}
+        </div>
       </div>
-    </div>
+    {{else}}
+      <div class="ui huge info icon message">
+        <i class="frown icon"></i>
+        <div class="content">
+          <div class="header">
+            No hay testimonios registrados para este ramo.
+          </div>
+          <p>¡Escribe uno si tienes alguna experiencia que contar!</p>
+        </div>
+      </div>
+    {{/if}}
   {{/if}}
 
   {{#if activeTab 'questions'}}
@@ -75,13 +87,25 @@
       </div>
     {{/if}}
 
-    <div class="aligner">
-      <div class="ui comments">
-        {{#each questions}}
-          {{> question}}
-        {{/each}}
+    {{#if anyQuestion}}
+      <div class="aligner">
+        <div class="ui comments">
+          {{#each questions}}
+            {{> question}}
+          {{/each}}
+        </div>
       </div>
-    </div>
+    {{else}}
+      <div class="ui huge info icon message">
+        <i class="frown icon"></i>
+        <div class="content">
+          <div class="header">
+            No hay preguntas registradas para este ramo.
+          </div>
+          <p>¡Escribe una si tienes dudas!</p>
+        </div>
+      </div>
+    {{/if}}
   {{/if}}
 
   {{#if currentUser.admin}}

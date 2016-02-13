@@ -46,8 +46,14 @@ Template.course.helpers({
   'activeTab': function(tabName) {
     return Session.equals('reading', tabName);
   },
+  anyTestimony: function() {
+    return Testimonies.find({ courseID: this._id }).count() !== 0;
+  },
   'testimonies': function() {
     return Testimonies.find({ courseID: this._id }, { sort: { createdAt: -1 } });
+  },
+  anyQuestion: function() {
+    return Questions.find({ courseID: this._id }).count() !== 0;
   },
   'questions': function() {
     return Questions.find({ courseID: this._id }, { sort: { createdAt: -1 } });
