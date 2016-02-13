@@ -102,7 +102,7 @@ Router.route('/notificationMessages', {
 });
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-  only: ['messagesPage']
+  only: ['notificationMessagesPage']
 });
 
 Router.onBeforeAction(OnBeforeActions.adminRequired, {
