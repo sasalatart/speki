@@ -14,10 +14,10 @@ Template.navbar.events({
 });
 
 Template.navbar.helpers({
-  'hasMessages': function() {
+  hasMessages: function() {
     return Messages.find().count() !== 0;
   },
-  'messageCount': function() {
+  messageCount: function() {
     return Messages.find().count();
   }
 })
