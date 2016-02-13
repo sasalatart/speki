@@ -1,9 +1,17 @@
 Template.course.events({
-  'click .remove-course': function(event) {
-    Meteor.call('removeCourse', this._id, errorCallback);
-  },
   'click .edit-course': function(event) {
     $('.ui.modal').modal('show');
+  },
+  'click .remove-course': function(event) {
+    var name = this.name;
+    Meteor.call('removeCourse', this._id, function(error, result) {
+      if (error) {
+        Notifications.error('Error' + error.error, error.reason);
+      } else if (result) {
+        Router.go('/');
+        Notifications.success(name, 'Ramo eliminado.');
+      }
+    });
   },
   'click #testimonies': function(event) {
     Session.set('reading', 'testimonies');
@@ -16,7 +24,7 @@ Template.course.events({
   'submit .new-testimony': function(event) {
     event.preventDefault();
     var text = event.target.text.value;
-    Meteor.call('addTestimony', this._id, text, errorCallback);
+    Meteor.call('addTestimony', this._id, text, methodCallback);
     event.target.text.value = "";
     Session.set('newTestimonyLength', 0);
   },
@@ -26,7 +34,7 @@ Template.course.events({
   'submit .new-question': function(event) {
     event.preventDefault();
     var text = event.target.text.value;
-    Meteor.call('addQuestion', this._id, text, errorCallback);
+    Meteor.call('addQuestion', this._id, text, methodCallback);
     event.target.text.value = "";
     Session.set('newQuestionLength', 0);
   },

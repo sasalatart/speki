@@ -3,7 +3,7 @@ configureFacebook = function(config) {
     service: "facebook"
   });
 
- ServiceConfiguration.configurations.insert({
+  ServiceConfiguration.configurations.insert({
     service: "facebook",
     appId: config.clientId,
     secret: config.secret
@@ -16,8 +16,10 @@ if (Meteor.settings.facebook) {
 
 Accounts.onCreateUser((options, user) => {
   if (options.profile) {
-    options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=normal";
-    user.profile = options.profile;
+    user.admin = false;
+    user.name = options.profile.name;
+    user.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=normal";
   }
+
   return user;
 });

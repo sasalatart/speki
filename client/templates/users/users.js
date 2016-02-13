@@ -10,7 +10,7 @@ Template.users.helpers({
     if (searchText) {
       var parts = searchText.trim().split(/[\-\:]+/);
       var regExp = new RegExp("\^(" + parts.join('|') + ")", "ig");
-      return Meteor.users.find({ 'profile.name': regExp });
+      return Meteor.users.find({ 'name': regExp });
     } else {
       return Meteor.users.find();
     }
