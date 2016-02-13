@@ -19,7 +19,6 @@ Template.editCourse.events({
 Template.editCourse.helpers({
   schools: function() {
     var options = { sort: { school: 1 }, fields: { school: true } };
-    return _.uniq(Courses.find({}, options)
-            .map(function(course) { return course.school; }), true);
+    return _.uniq(Courses.find({}, options).map(course => course.school), true);
   }
 });
