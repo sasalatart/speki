@@ -36,26 +36,26 @@ Template.course.events({
 });
 
 Template.course.helpers({
-  'getInformation': function() {
+  getInformation: function() {
     if (this.information === '0') {
       return 'Descripción no disponible para este ramo.'
     } else {
       return this.information;
     }
   },
-  'activeTab': function(tabName) {
+  activeTab: function(tabName) {
     return Session.equals('reading', tabName);
   },
   anyTestimony: function() {
     return Testimonies.find({ courseID: this._id }).count() !== 0;
   },
-  'testimonies': function() {
+  testimonies: function() {
     return Testimonies.find({ courseID: this._id }, { sort: { createdAt: -1 } });
   },
   anyQuestion: function() {
     return Questions.find({ courseID: this._id }).count() !== 0;
   },
-  'questions': function() {
+  questions: function() {
     return Questions.find({ courseID: this._id }, { sort: { createdAt: -1 } });
   },
   length: function(key) {
