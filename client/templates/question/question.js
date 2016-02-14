@@ -44,7 +44,7 @@ Template.question.helpers({
     return Meteor.users.findOne({ _id: this.author });
   },
   dateWritten: function() {
-    return this.createdAt.toDateString();
+    return getDate(this.createdAt);
   },
   isOwner: function() {
     return this.author === Meteor.userId();

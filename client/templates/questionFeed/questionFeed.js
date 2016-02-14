@@ -7,7 +7,7 @@ Template.questionFeed.helpers({
     return Meteor.users.findOne({ _id: this.author });
   },
   dateWritten: function() {
-    return this.createdAt.toDateString();
+    return getDate(this.createdAt);
   },
   parentCourse: function() {
     return Courses.findOne({ _id: this.courseID });
