@@ -9,7 +9,7 @@ Template.course.events({
         Notifications.error('Error' + error.error, error.reason);
       } else if (result) {
         Router.go('/');
-        Notifications.success(name, 'Ramo eliminado.');
+        Notifications.success(name, 'Ramo eliminado.', notificationsOptions);
       }
     });
   },
