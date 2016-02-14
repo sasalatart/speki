@@ -15,7 +15,7 @@ Template.newCourse.events({
         Notifications.error('Error' + error.error, error.reason);
       } else if (result) {
         Router.go('/');
-        Notifications.success(name, 'Ramo agregado.');
+        Notifications.success(name, 'Ramo agregado.', notificationsOptions);
       }
     });
   }
