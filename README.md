@@ -19,10 +19,6 @@ JSON:
 
 ```javascript
 {
-  "facebook" : {
-    "clientId": your-facebook-clientID,
-    "secret": your-facebook-clientSecret
-  },
   "kadira": {
     "appId": your-kadira-appID,
     "appSecret": your-kadira-appSecret
@@ -30,17 +26,36 @@ JSON:
 }
 ```
 
+as well as exporting the following environment variables:
+
+```sh
+$ export SPEKI_FB_CLIENT_ID=your-Facebook-Client-ID
+$ export SPEKI_FB_SECRET=your-Facebook-Client-Secret
+```
+
 ##### Development
 
 1. Make sure that at least [Meteor](https://www.meteor.com/install) and
 [MongoDB](https://www.mongodb.org/) are installed.
-2. Clone and cd into this repository
-3. Run `meteor --settings private/settings.json`.
+2. Run `meteor --settings private/settings.json`.
 
 You may interact with the database by opening another shell instance and running
 `meteor mongo`.
 
-##### Production
+##### Docker
 
-1. Clone and cd into this repository
-2. Run `meteor deploy any-domain.meteor.com --settings private/settings.json`
+```sh
+# Build
+$ docker-compose build
+
+# Run
+$ docker-compose up -d
+```
+
+The server's machine should now be redirecting its port 80 to the container's
+port 80.
+
+To stop:
+```sh
+$ docker-compose stop
+```

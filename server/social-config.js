@@ -5,14 +5,12 @@ configureFacebook = function(config) {
 
   ServiceConfiguration.configurations.insert({
     service: "facebook",
-    appId: config.clientId,
-    secret: config.secret
+    appId: process.env.SPEKI_FB_CLIENT_ID,
+    secret: process.env.SPEKI_FB_SECRET
   });
 };
 
-if (Meteor.settings.facebook) {
-  configureFacebook(Meteor.settings.facebook);
-}
+configureFacebook(Meteor.settings.facebook);
 
 Accounts.onCreateUser((options, user) => {
   if (options.profile) {
