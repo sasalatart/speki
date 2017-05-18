@@ -5,9 +5,6 @@
 > Credits to [Patricio López](https://github.com/mrpatiwi) for his *Buscacursos UC Scraper*.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](sasalatart/speki)
-[![](https://images.microbadger.com/badges/version/sasalatart/speki.svg)](https://microbadger.com/images/sasalatart/speki)
-[![](https://images.microbadger.com/badges/image/sasalatart/speki.svg)](https://microbadger.com/images/sasalatart/speki)
 
 ## Setup
 
@@ -24,20 +21,3 @@ $ export FB_SECRET=your-Facebook-Client-Secret
 
 - Run `meteor run`
 - You may interact with the database by opening another shell instance and running `meteor mongo`.
-
-#### Docker
-
-```sh
-# Build
-$ docker-compose build
-
-# Run
-$ docker-compose up -d
-```
-
-The server's machine should now be redirecting its port 80 to the container's port 80.
-
-To stop:
-```sh
-$ docker-compose stop
-```
