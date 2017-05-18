@@ -1,48 +1,31 @@
 # Speki
 
-> Write your own UC course experiences, ask questions about them, answer your
-friends', and rate these answers.
+> Write your own UC course experiences, ask questions about them, answer your friends', and rate these answers.
 
-> Credits to [Patricio López](https://github.com/mrpatiwi) for his *Buscacursos
-UC Scraper*.
+> Credits to [Patricio López](https://github.com/mrpatiwi) for his *Buscacursos UC Scraper*.
 
-### Setup
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](sasalatart/speki)
+[![](https://images.microbadger.com/badges/version/sasalatart/speki.svg)](https://microbadger.com/images/sasalatart/speki)
+[![](https://images.microbadger.com/badges/image/sasalatart/speki.svg)](https://microbadger.com/images/sasalatart/speki)
 
-In order to monitor the app, make sure to have a [Kadira](https://kadira.io/)
-account, register the app and get your `appId` and `appSecret`. In order to
-enable logging in with Facebook, register your app at
-[Developers.Facebook](https://developers.facebook.com/) and get your
-corresponding `clientId` and `secret`, and complete the requested configuration.
+## Setup
 
-Then, make sure to create and fill in `private/settings.json` with the following
-JSON:
+In order to enable logging in with Facebook, register your app at [Developers.Facebook](https://developers.facebook.com/) and get your corresponding `clientId` and `secret`, and complete the requested configuration.
 
-```javascript
-{
-  "kadira": {
-    "appId": your-kadira-appID,
-    "appSecret": your-kadira-appSecret
- }
-}
-```
-
-as well as exporting the following environment variables:
+Then, make sure you export the following environment variables:
 
 ```sh
-$ export SPEKI_FB_CLIENT_ID=your-Facebook-Client-ID
-$ export SPEKI_FB_SECRET=your-Facebook-Client-Secret
+$ export FB_CLIENT_ID=your-Facebook-Client-ID
+$ export FB_SECRET=your-Facebook-Client-Secret
 ```
 
-##### Development
+#### Development
 
-1. Make sure that at least [Meteor](https://www.meteor.com/install) and
-[MongoDB](https://www.mongodb.org/) are installed.
-2. Run `meteor --settings private/settings.json`.
+- Run `meteor run`
+- You may interact with the database by opening another shell instance and running `meteor mongo`.
 
-You may interact with the database by opening another shell instance and running
-`meteor mongo`.
-
-##### Docker
+#### Docker
 
 ```sh
 # Build
@@ -52,8 +35,7 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
-The server's machine should now be redirecting its port 80 to the container's
-port 80.
+The server's machine should now be redirecting its port 80 to the container's port 80.
 
 To stop:
 ```sh

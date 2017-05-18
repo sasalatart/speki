@@ -10,5 +10,5 @@ web:
   environment:
     - MONGO_URL=mongodb://mongo_db/speki
     - ROOT_URL=http://0.0.0.0
-    - SPEKI_FB_CLIENT_ID
-    - SPEKI_FB_SECRET
+    - FB_CLIENT_ID
+    - FB_SECRET

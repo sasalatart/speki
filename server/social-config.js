@@ -5,8 +5,8 @@ configureFacebook = function(config) {
 
   ServiceConfiguration.configurations.insert({
     service: "facebook",
-    appId: process.env.SPEKI_FB_CLIENT_ID,
-    secret: process.env.SPEKI_FB_SECRET
+    appId: process.env.FB_CLIENT_ID,
+    secret: process.env.FB_SECRET
   });
 };
 

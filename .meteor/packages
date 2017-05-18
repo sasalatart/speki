@@ -24,9 +24,6 @@ meteorhacks:subs-manager
 gfk:notifications
 okgrow:router-autoscroll
 sacha:spin
-meteorhacks:kadira
-meteorhacks:kadira-profiler
-kadira:debug
 meteorhacks:fast-render
 anti:fake
 meteorhacks:unblock
